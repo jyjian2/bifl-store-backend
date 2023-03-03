@@ -1,9 +1,11 @@
 const Brand = require('./models/brand')
+const Product = require('./models/product')
 const express = require('express');
 const bodyParser = require('body-parser');
 
 const db = require('./db');
-const brandRouter = require('./routes/brand-router')
+const brandRouter = require('./routes/brand-router');
+const productRouter = require('./routes/product-router');
 
 const cors = require('cors');
 const req = require('express/lib/request');
@@ -21,5 +23,6 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api', brandRouter)
+app.use('/api', productRouter)
 
 app.listen(apiPort, () => console.log(`Server is running on ${apiPort}`));
