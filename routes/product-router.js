@@ -4,10 +4,10 @@ const ProductCtrl = require('../controllers/product-ctrl')
 
 const router = express.Router()
 
-router.post('/product', ProductCtrl.createProduct)
-router.put('/product/:id', ProductCtrl.updateProduct)
-router.delete('/product/:id', ProductCtrl.deleteProduct)
-router.get('/product/:id', ProductCtrl.getProductById)
+router.post('/products', ProductCtrl.createProduct)
+router.put('/products/:id', ProductCtrl.updateProduct)
+router.delete('/products/:id', ProductCtrl.deleteProduct)
+router.get('/products/:id', ProductCtrl.getProductById)
 router.get('/products', ProductCtrl.getProducts)
 router.get('/products/:category', getProductByCategory)
 
