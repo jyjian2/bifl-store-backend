@@ -118,7 +118,8 @@ getProductById = async (req, res) => {
 }
 
 getProducts = async (req, res) => {
-    await Product.find({}, (err, products) => {
+    await Product.find(req.query, (err, products) => {
+
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }
@@ -131,26 +132,10 @@ getProducts = async (req, res) => {
     }).clone().catch(err => console.log(err))
 }
 
-getProductByCategory = async (req, res) => {
-    await Product.find({ category: req.params.category }, (err, products) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-
-        if (!products) {
-            return res
-                .status(404)
-                .json({ success: false, error: `${req.params.category} Product not found` })
-        }
-        return res.status(200).json({ success: true, data: products })
-    }).catch(err => console.log(err))
-}
-
 module.exports = {
     createProduct,
     updateProduct,
     deleteProduct,
     getProducts,
     getProductById,
-    getProductByCategory,
 }
