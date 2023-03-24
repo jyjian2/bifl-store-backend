@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const db = require('./db');
 const brandRouter = require('./routes/brand-router');
 const productRouter = require('./routes/product-router');
+const userRouter = require('./routes/user-router');
 
 const cors = require('cors');
 const req = require('express/lib/request');
@@ -24,5 +25,6 @@ app.get('/', (req, res) => {
 
 app.use('/api', brandRouter)
 app.use('/api', productRouter)
+app.use('/api', userRouter)
 
 app.listen(apiPort, () => console.log(`Server is running on ${apiPort}`));

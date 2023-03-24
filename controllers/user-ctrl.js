@@ -1,4 +1,3 @@
-const user = require('../models/user')
 const User = require('../models/user')
 
 createUser = (req, res) => {
@@ -11,6 +10,8 @@ createUser = (req, res) => {
             error: 'You must provide a user',
         })
     }
+
+    const user = new User(body)
 
     if (!user) {
         return res.status(400).json({success: false, error: error})
